@@ -1,0 +1,387 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #111;
+  color: #fff;
+}
+
+/* HEADER */
+header {
+  text-align: center;
+  padding: 20px;
+  background: #000;
+  border-bottom: 2px solid red;
+}
+
+h1 {
+  color: red;
+}
+
+/* APP HEADER */
+.app-header {
+  text-align: center;
+  padding: 15px 20px;
+  background: #000;
+  border-bottom: 2px solid red;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.subtitle {
+  color: #ccc;
+  font-size: 0.9em;
+  margin-top: -10px;
+}
+
+/* SPA SCREENS */
+#app-container {
+  padding-bottom: 80px; /* Espacio para el Bottom Nav */
+}
+
+.screen {
+  display: none;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.screen.active {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* DROPDOWN MENU */
+.dropdown-categorias {
+  margin: 15px 20px 0;
+  background: #1c1c1c;
+  border-radius: 8px;
+  border: 1px solid #333;
+}
+
+.dropdown-categorias summary {
+  padding: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  list-style: none; /* Hide default arrow */
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dropdown-categorias summary::-webkit-details-marker {
+  display: none;
+}
+
+.dropdown-categorias summary span {
+  color: red;
+  transition: transform 0.3s ease;
+}
+
+.dropdown-categorias[open] summary span {
+  transform: rotate(180deg);
+}
+
+.dropdown-content {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid #333;
+}
+
+.dropdown-content a {
+  padding: 15px;
+  color: #ccc;
+  text-decoration: none;
+  font-size: 0.9em;
+  border-bottom: 1px solid #222;
+}
+
+.dropdown-content a:last-child {
+  border-bottom: none;
+}
+
+.dropdown-content a:active {
+  background: #333;
+  color: red;
+}
+
+/* SECCIONES */
+section {
+  padding: 20px;
+}
+
+h2 {
+  color: red;
+}
+
+/* NOTICIAS ESTILO REVISTA */
+.noticia {
+  display: flex;
+  align-items: center;
+  margin-bottom: 40px;
+  background: #1c1c1c;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.noticia img {
+  width: 50%;
+  height: 300px;
+  object-fit: cover;
+}
+
+.texto {
+  padding: 20px;
+  width: 50%;
+}
+
+.texto h3 {
+  color: red;
+}
+
+/* alternar */
+.reverse {
+  flex-direction: row-reverse;
+}
+
+/* BOTON */
+button {
+  background: red;
+  border: none;
+  padding: 10px;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+button:hover {
+  background: darkred;
+}
+
+/* CONTACTO APP */
+.contacto-app {
+  text-align: center;
+  padding: 20px;
+}
+
+.card-contacto {
+  background: #1c1c1c;
+  padding: 20px;
+  border-radius: 10px;
+  margin: 20px auto;
+  max-width: 400px;
+  border-left: 4px solid red;
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 20px;
+  background: transparent;
+  color: #888;
+  font-size: 0.9em;
+}
+
+/* BOTTOM NAVIGATION PWA */
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: #000;
+  display: flex;
+  justify-content: space-around;
+  padding: 10px 0;
+  border-top: 1px solid #333;
+  z-index: 1000;
+  padding-bottom: env(safe-area-inset-bottom, 10px); /* Soporte para iOS */
+}
+
+.nav-btn {
+  background: transparent;
+  border: none;
+  color: #666;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8em;
+  cursor: pointer;
+  border-radius: 0;
+  padding: 5px 10px;
+  transition: color 0.2s;
+}
+
+.nav-btn:hover {
+  background: transparent;
+}
+
+.nav-btn .nav-icon {
+  font-size: 1.5em;
+  margin-bottom: 3px;
+  filter: grayscale(100%);
+}
+
+.nav-btn.active {
+  color: red;
+}
+
+.nav-btn.active .nav-icon {
+  filter: none;
+}
+
+/* FORO DE LA COMUNIDAD */
+#foro {
+  padding: 20px;
+}
+
+.form-foro {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.form-foro textarea {
+  height: 80px;
+  padding: 10px;
+}
+
+.form-foro button {
+  background: red;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.opciones-imagen {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  background: #1c1c1c;
+  padding: 15px;
+  border-radius: 10px;
+  flex-wrap: wrap;
+}
+
+.camara-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  background: #1c1c1c;
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+#videoCamara {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 10px;
+  border: 2px solid red;
+}
+
+.preview-foto {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 10px;
+  align-self: center;
+  border: 2px solid red;
+  margin-bottom: 15px;
+}
+
+.btn-camara {
+  background: #333 !important;
+}
+
+.btn-camara:hover {
+  background: #555 !important;
+}
+
+.btn-capturar {
+  background: #28a745 !important;
+}
+
+.btn-capturar:hover {
+  background: #218838 !important;
+}
+
+.post {
+  background: #111;
+  margin-bottom: 20px;
+  padding: 15px;
+  border-radius: 10px;
+  position: relative; /* Clave para el botón absoluto */
+}
+
+.post img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  margin-top: 10px;
+  margin-bottom: 15px; /* Added spacing */
+}
+
+.acciones-post {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.btn-delete-foro-icon {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: transparent !important;
+  border: none;
+  font-size: 1.4em;
+  cursor: pointer;
+  padding: 0;
+  transition: transform 0.2s ease;
+  z-index: 10;
+}
+
+.btn-delete-foro-icon:hover {
+  transform: scale(1.2);
+}
+
+/* RESPONSIVE DESIGN (MOBILE FIRST & MEDIA QUERIES) */
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 1.5em; /* Ajuste de tamaño del título */
+  }
+
+  /* Remover estilos obsoletos del nav móvil que usábamos con header */
+
+  /* Ajuste para que tanto la noticia normal como invertida se apilen correctamente en móvil */
+  .noticia, .noticia.reverse {
+    flex-direction: column;
+  }
+
+  .noticia img {
+    width: 100%;
+    height: 200px;
+  }
+
+  .texto {
+    width: 100%;
+    padding: 15px;
+    box-sizing: border-box; /* Prevenir desbordamiento y scroll horizontal */
+  }
+
+  .post img {
+    height: auto;
+    max-height: 200px;
+  }
+  
+  section {
+    padding: 10px;
+  }
+}
