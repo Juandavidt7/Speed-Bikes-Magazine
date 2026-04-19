@@ -1,0 +1,683 @@
+/* ==========================================
+   GOOGLE FONTS
+   ========================================== */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap');
+
+body {
+  margin: 0;
+  font-family: 'Outfit', Arial, sans-serif;
+  background: #111;
+  color: #fff;
+}
+
+/* ==========================================
+   LOGIN OVERLAY & MODAL
+   ========================================== */
+#login-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  animation: overlayFadeIn 0.5s ease;
+}
+
+#login-overlay.closing {
+  animation: overlayFadeOut 0.4s ease forwards;
+}
+
+@keyframes overlayFadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes overlayFadeOut {
+  from { opacity: 1; }
+  to   { opacity: 0; }
+}
+
+.login-modal {
+  background: linear-gradient(145deg, #1a1a1a 0%, #0d0d0d 100%);
+  border: 1px solid rgba(255, 50, 50, 0.25);
+  border-radius: 20px;
+  padding: 35px 30px;
+  width: 90%;
+  max-width: 420px;
+  box-shadow:
+    0 25px 60px rgba(0, 0, 0, 0.6),
+    0 0 40px rgba(255, 50, 50, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  animation: modalSlideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes modalSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.login-header {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.login-logo {
+  font-size: 3em;
+  display: block;
+  margin-bottom: 8px;
+  animation: logoPulse 2s ease-in-out infinite;
+}
+
+@keyframes logoPulse {
+  0%, 100% { transform: scale(1); }
+  50%      { transform: scale(1.1); }
+}
+
+.login-header h2 {
+  color: #fff;
+  font-size: 1.5em;
+  font-weight: 700;
+  margin: 5px 0;
+}
+
+.login-subtitle {
+  color: #888;
+  font-size: 0.9em;
+  margin: 0;
+}
+
+/* LOGIN TABS */
+.login-tabs {
+  display: flex;
+  gap: 0;
+  margin-bottom: 25px;
+  background: #0a0a0a;
+  border-radius: 12px;
+  padding: 4px;
+  border: 1px solid #222;
+}
+
+.login-tab {
+  flex: 1;
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  background: transparent;
+  color: #666;
+  font-size: 0.85em;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Outfit', Arial, sans-serif;
+}
+
+.login-tab:hover {
+  color: #aaa;
+  background: transparent;
+}
+
+.login-tab.active {
+  background: linear-gradient(135deg, #e63232, #c41e1e);
+  color: #fff;
+  box-shadow: 0 4px 15px rgba(230, 50, 50, 0.35);
+}
+
+/* LOGIN FORM */
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.input-group label {
+  font-size: 0.85em;
+  color: #aaa;
+  font-weight: 400;
+}
+
+.input-group input,
+.input-group select {
+  padding: 14px 16px;
+  border: 1px solid #2a2a2a;
+  border-radius: 12px;
+  background: #141414;
+  color: #fff;
+  font-size: 0.95em;
+  font-family: 'Outfit', Arial, sans-serif;
+  transition: all 0.3s ease;
+  outline: none;
+  -webkit-appearance: none;
+}
+
+.input-group input:focus,
+.input-group select:focus {
+  border-color: #e63232;
+  box-shadow: 0 0 0 3px rgba(230, 50, 50, 0.15);
+  background: #1a1a1a;
+}
+
+.input-group input::placeholder {
+  color: #555;
+}
+
+.input-group select option {
+  background: #1a1a1a;
+  color: #fff;
+}
+
+/* LOGIN BUTTON */
+.btn-login {
+  padding: 15px;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #e63232, #b91e1e);
+  color: #fff;
+  font-size: 1em;
+  font-weight: 700;
+  font-family: 'Outfit', Arial, sans-serif;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 5px;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-login:hover {
+  background: linear-gradient(135deg, #ff4444, #e63232);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(230, 50, 50, 0.4);
+}
+
+.btn-login:active {
+  transform: translateY(0);
+}
+
+/* LOGIN ERROR */
+.login-error {
+  color: #ff6b6b;
+  font-size: 0.85em;
+  text-align: center;
+  margin: 0;
+  display: none;
+  padding: 10px;
+  background: rgba(255, 50, 50, 0.1);
+  border-radius: 8px;
+  border: 1px solid rgba(255, 50, 50, 0.2);
+  animation: shakeError 0.4s ease;
+}
+
+@keyframes shakeError {
+  0%, 100% { transform: translateX(0); }
+  25%      { transform: translateX(-8px); }
+  75%      { transform: translateX(8px); }
+}
+
+/* ==========================================
+   NICKNAME BADGE (HEADER)
+   ========================================== */
+#nickname-badge {
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, rgba(230, 50, 50, 0.15), rgba(180, 30, 30, 0.1));
+  border: 1px solid rgba(230, 50, 50, 0.3);
+  border-radius: 50px;
+  padding: 6px 12px 6px 8px;
+  animation: badgeSlideIn 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 101;
+}
+
+@keyframes badgeSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-50%) translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(-50%) translateX(0);
+  }
+}
+
+.badge-info {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.badge-avatar {
+  font-size: 1.1em;
+}
+
+.badge-name {
+  color: #fff;
+  font-size: 0.8em;
+  font-weight: 600;
+  max-width: 100px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.badge-logout {
+  background: transparent !important;
+  border: none !important;
+  color: #888;
+  font-size: 0.8em;
+  cursor: pointer;
+  padding: 2px 4px;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+  line-height: 1;
+}
+
+.badge-logout:hover {
+  color: #ff4444;
+  background: rgba(255, 50, 50, 0.1) !important;
+}
+
+/* Hacer header relativo para posicionar el badge absoluto */
+.app-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+/* HEADER */
+header {
+  text-align: center;
+  padding: 20px;
+  background: #000;
+  border-bottom: 2px solid red;
+}
+
+h1 {
+  color: red;
+}
+
+/* APP HEADER */
+.app-header {
+  text-align: center;
+  padding: 15px 20px;
+  background: #000;
+  border-bottom: 2px solid red;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.subtitle {
+  color: #ccc;
+  font-size: 0.9em;
+  margin-top: -10px;
+}
+
+/* SPA SCREENS */
+#app-container {
+  padding-bottom: 80px; /* Espacio para el Bottom Nav */
+}
+
+.screen {
+  display: none;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.screen.active {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* DROPDOWN MENU */
+.dropdown-categorias {
+  margin: 15px 20px 0;
+  background: #1c1c1c;
+  border-radius: 8px;
+  border: 1px solid #333;
+}
+
+.dropdown-categorias summary {
+  padding: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  list-style: none; /* Hide default arrow */
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dropdown-categorias summary::-webkit-details-marker {
+  display: none;
+}
+
+.dropdown-categorias summary span {
+  color: red;
+  transition: transform 0.3s ease;
+}
+
+.dropdown-categorias[open] summary span {
+  transform: rotate(180deg);
+}
+
+.dropdown-content {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid #333;
+}
+
+.dropdown-content a {
+  padding: 15px;
+  color: #ccc;
+  text-decoration: none;
+  font-size: 0.9em;
+  border-bottom: 1px solid #222;
+}
+
+.dropdown-content a:last-child {
+  border-bottom: none;
+}
+
+.dropdown-content a:active {
+  background: #333;
+  color: red;
+}
+
+/* SECCIONES */
+section {
+  padding: 20px;
+}
+
+h2 {
+  color: red;
+}
+
+/* NOTICIAS ESTILO REVISTA */
+.noticia {
+  display: flex;
+  align-items: center;
+  margin-bottom: 40px;
+  background: #1c1c1c;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.noticia img {
+  width: 50%;
+  height: 300px;
+  object-fit: cover;
+}
+
+.texto {
+  padding: 20px;
+  width: 50%;
+}
+
+.texto h3 {
+  color: red;
+}
+
+/* alternar */
+.reverse {
+  flex-direction: row-reverse;
+}
+
+/* BOTON */
+button {
+  background: red;
+  border: none;
+  padding: 10px;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+button:hover {
+  background: darkred;
+}
+
+/* CONTACTO APP */
+.contacto-app {
+  text-align: center;
+  padding: 20px;
+}
+
+.card-contacto {
+  background: #1c1c1c;
+  padding: 20px;
+  border-radius: 10px;
+  margin: 20px auto;
+  max-width: 400px;
+  border-left: 4px solid red;
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 20px;
+  background: transparent;
+  color: #888;
+  font-size: 0.9em;
+}
+
+/* BOTTOM NAVIGATION PWA */
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: #000;
+  display: flex;
+  justify-content: space-around;
+  padding: 10px 0;
+  border-top: 1px solid #333;
+  z-index: 1000;
+  padding-bottom: env(safe-area-inset-bottom, 10px); /* Soporte para iOS */
+}
+
+.nav-btn {
+  background: transparent;
+  border: none;
+  color: #666;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8em;
+  cursor: pointer;
+  border-radius: 0;
+  padding: 5px 10px;
+  transition: color 0.2s;
+}
+
+.nav-btn:hover {
+  background: transparent;
+}
+
+.nav-btn .nav-icon {
+  font-size: 1.5em;
+  margin-bottom: 3px;
+  filter: grayscale(100%);
+}
+
+.nav-btn.active {
+  color: red;
+}
+
+.nav-btn.active .nav-icon {
+  filter: none;
+}
+
+/* FORO DE LA COMUNIDAD */
+#foro {
+  padding: 20px;
+}
+
+.form-foro {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.form-foro textarea {
+  height: 80px;
+  padding: 10px;
+}
+
+.form-foro button {
+  background: red;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.opciones-imagen {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  background: #1c1c1c;
+  padding: 15px;
+  border-radius: 10px;
+  flex-wrap: wrap;
+}
+
+.camara-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  background: #1c1c1c;
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+#videoCamara {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 10px;
+  border: 2px solid red;
+}
+
+.preview-foto {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 10px;
+  align-self: center;
+  border: 2px solid red;
+  margin-bottom: 15px;
+}
+
+.btn-camara {
+  background: #333 !important;
+}
+
+.btn-camara:hover {
+  background: #555 !important;
+}
+
+.btn-capturar {
+  background: #28a745 !important;
+}
+
+.btn-capturar:hover {
+  background: #218838 !important;
+}
+
+.post {
+  background: #111;
+  margin-bottom: 20px;
+  padding: 15px;
+  border-radius: 10px;
+  position: relative; /* Clave para el botón absoluto */
+}
+
+.post img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  margin-top: 10px;
+  margin-bottom: 15px; /* Added spacing */
+}
+
+.acciones-post {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.btn-delete-foro-icon {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: transparent !important;
+  border: none;
+  font-size: 1.4em;
+  cursor: pointer;
+  padding: 0;
+  transition: transform 0.2s ease;
+  z-index: 10;
+}
+
+.btn-delete-foro-icon:hover {
+  transform: scale(1.2);
+}
+
+/* RESPONSIVE DESIGN (MOBILE FIRST & MEDIA QUERIES) */
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 1.5em; /* Ajuste de tamaño del título */
+  }
+
+  /* Remover estilos obsoletos del nav móvil que usábamos con header */
+
+  /* Ajuste para que tanto la noticia normal como invertida se apilen correctamente en móvil */
+  .noticia, .noticia.reverse {
+    flex-direction: column;
+  }
+
+  .noticia img {
+    width: 100%;
+    height: 200px;
+  }
+
+  .texto {
+    width: 100%;
+    padding: 15px;
+    box-sizing: border-box; /* Prevenir desbordamiento y scroll horizontal */
+  }
+
+  .post img {
+    height: auto;
+    max-height: 200px;
+  }
+  
+  section {
+    padding: 10px;
+  }
+}
